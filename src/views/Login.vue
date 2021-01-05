@@ -57,7 +57,7 @@ import {email, required, minLength} from "vuelidate/lib/validators"
 
 export default {
   name: 'Login',
-  date: () => ({
+  data: () => ({
     email: "",
     password: ""
   }),
