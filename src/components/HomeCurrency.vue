@@ -7,19 +7,19 @@
         </div>
         <table>
           <thead>
-          <tr>
-            <th>Валюта</th>
-            <th>Курс</th>
-            <th>Дата</th>
-          </tr>
+            <tr>
+              <th>Валюта</th>
+              <th>Курс</th>
+              <th>Дата</th>
+            </tr>
           </thead>
 
           <tbody>
-          <tr>
-            <td>руб</td>
-            <td>12121</td>
-            <td>12.12.12</td>
-          </tr>
+            <tr v-for="cur in currencies" :key="cur">
+              <td>{{ cur }}</td>
+              <td>{{ rates[cur].toFixed(4) }}</td>
+              <td>{{ date | date('date') }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -29,7 +29,11 @@
 
 <script>
   export default {
-    name: 'HomeCurrency'
+    name: 'HomeCurrency',
+    data: () => ({
+      currencies: ["USD", "RUB", "EUR"]
+    }),
+    props: ["rates", "date"]
   };
 </script>
 
